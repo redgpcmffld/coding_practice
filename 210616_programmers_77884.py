@@ -1,8 +1,9 @@
-def solution(absolutes, signs):
+def solution(left, right):
     answer = 0
-    for i in range(len(absolutes)):
-        if signs[i]:
-            answer += absolutes[i]
+    for integer in range(left, right+1):
+        divisor = len([integer / int for int in range(1, integer+1) if integer % int == 0])
+        if divisor % 2 == 0:
+            answer += integer
         else:
-            answer -= absolutes[i]
+            answer -= integer
     return answer
